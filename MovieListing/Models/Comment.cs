@@ -11,6 +11,6 @@ namespace MovieListing.Models
         public int MovieId { get; set; }    
         public Movies? Movies { get; set;}
         public TimeSpan? TimeStamp { get; set; }
-        public ApplicationUser? ApplicationUserUser { get; set; }
+        //public ApplicationUser ApplicationUserUser { get; set; }
     }
 }
