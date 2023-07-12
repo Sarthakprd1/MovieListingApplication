@@ -1,0 +1,72 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.bgconfig {
+    opacity: 0.9;
+    display:flex;
+}
+
+.containerr{
+    background-color: grey;
+}
+
+.hoverr{
+    transition-duration:5s;
+    border-radius: 20%;
+    cursor:pointer;
+    
+}
+
+.moviecontainer {
+    
+    height:100%;
+    width: 100%;
+    background-color:bisque;
+    
+    
+}
+
+.movieitem {
+    display: flex;
+    color: white;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    height:400px;
+    width: 400px;
+    justify-content:space-evenly;
+    
+
+}
+body{
+   
+}
+
+.btn-color{
+    color:red;
+}
+
+.btn-color-grey{
+    color:grey;
+    
+}
+
+.btn-color-blue{
+    color:midnightblue
+}

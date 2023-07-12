@@ -1,0 +1,66 @@
+﻿@model List<Country>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Country Information</h1>
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["AlertMessage"]
+    </div>
+}
+
+@if (TempData["DeleteMessage"] != null)
+{
+    <div class="alert alert-warning">
+        <strong>Success !</strong> @TempData["DeleteMessage"]
+    </div>
+}
+
+@if (TempData["UpdateCountry"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["UpdateCountry"]
+    </div>
+}
+
+<p>
+    <a class="btn btn-primary"  asp-action="Create">Create New</a>
+</p>
+
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                
+                <td>
+                    <a class="btn-color-grey" asp-controller="Countries" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+
+                    <a class="btn-color" asp-controller="Countries" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $("#table").DataTable();
+    </script>
+}

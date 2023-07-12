@@ -1,0 +1,65 @@
+﻿@model List<Genre>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Genre Index</h1>
+
+
+@if (TempData["GenreAdd"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["GenreAdd"]
+    </div>
+}
+
+@if (TempData["GenreRemove"] != null)
+{
+    <div class="alert alert-warning">
+        <strong>Success !</strong> @TempData["GenreRemove"]
+    </div>
+}
+
+@if (TempData["GenreUpdate"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["GenreUpdate"]
+    </div>
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    <a class="btn-color-grey" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn-color" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $("#table").DataTable();
+    </script>
+}

@@ -1,0 +1,56 @@
+﻿@model Movies
+
+
+<H1 class="text-white">Create</H1>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+
+            <div class="card-header">
+                <h5>Insert New Movie Details</h5>
+            </div>
+
+            <div class="card-body">
+                <form asp-controller="Hello" asp-action="Create" method="post">
+                    <div class="mb-3">
+
+                        <div>
+                            <label class="form-label">Movie Title</label>
+                            <input asp-for=Title type="text" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Movie Description</label>
+                            <input asp-for="Description" type="text" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Released Year</label>
+                            <input asp-for="Year" type="datetime" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Country</label>
+                            <input asp-for="Country" type="text" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Image URL</label>
+                            <input asp-for="MoviePhoto" type="image" class="form-control" />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer">
+            </div>
+        </div>
+
+
+    </div>
+</div>

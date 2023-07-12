@@ -1,0 +1,104 @@
+﻿@model List<Year>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Pager pager = new Pager();
+    //int pageNo = 0;
+    //if (ViewBag.Pager != null)
+    //{
+    //    pager = ViewBag.Pager;
+    //    pageNo = pager.CurrentPage;
+    //}
+}
+
+<h1>Year Index</h1>
+
+@if (TempData["YearAdd"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["YearAdd"]
+    </div>
+}
+
+@if (TempData["YearRemove"] != null)
+{
+    <div class="alert alert-warning">
+        <strong>Success !</strong> @TempData["AddRemove"]
+    </div>
+}
+
+@if (TempData["YearUpdate"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong> @TempData["YearUpdate"]
+    </div>
+}
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>
+                Year
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Years)
+                </td>
+
+                <td>
+                    <a class="btn-color-grey" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn-color" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Year" asp-action="Index" asp-route-pg="1">First</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="Year" asp-action="Index" asp-route-pg="@(pager.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="Year" asp-action="Index" asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Year" asp-action="Index" asp-route-pg="@pager.CurrentPage + 1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Year" asp-action="Index" asp-route-pg="@pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>*@
+
+@section Scripts{
+    <script>
+        $("#table").DataTable();
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿@model Year
+
+@{
+    ViewData["Title"] = "CreateMovies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create Year</h1>
+
+<h4 class="btn-color-grey">Insert Year Details.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Years" class="control-label"></label>
+                <input asp-for="Years" class="form-control" />
+                <span asp-validation-for="Years" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

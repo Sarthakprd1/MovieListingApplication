@@ -1,0 +1,66 @@
+﻿@model MovieListing.Models.Movies
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movies</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+        <dd>
+            <img src="@Model?.MoviePhoto" style="width: 220px; height: 250px; cursor:pointer" />
+        </dd>
+        </dt>
+        <br />
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+      
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year.Years)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genre.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*@if (User.IsInRole("Admin"))
+    {
+                       
+    }*@
+    @*<a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>*@
+    <a class="btn btn-dark" asp-action="Index">Back to List</a>
+    
+    
+</div>
+
+<hr />
+<h1>Comment & Rating Section</h1>
