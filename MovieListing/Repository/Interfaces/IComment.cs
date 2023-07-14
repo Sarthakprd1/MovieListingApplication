@@ -8,6 +8,6 @@ namespace MovieListing.Repository.Interfaces
         bool DeleteComments(Comment comment);
         bool EditComments(Comment comment);
         Comment GetById(int id);
-        List<Comment> GetComments();
+        List<Comment> GetComments(int movieid);
     }
 }

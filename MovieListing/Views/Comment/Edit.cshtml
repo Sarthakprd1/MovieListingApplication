@@ -1,0 +1,66 @@
+﻿@*<div class="card card-outline-secondary my-4">
+    <div class="card-header">
+        <b>Comment & Rating Section</b>
+    </div>
+    <div class="card-body">
+        <div>
+            @foreach (var comment in ViewBag.Comments)
+            {
+                <div>
+                    <p>@comment.CommentDesc</p>
+                    <a class="btn-color-grey" asp-action="Edit" asp-controller="Comment" asp-route-id="@Model.Id">Edit</a>
+                    <a class="btn-danger" asp-action="Delete" asp-controller="Comment" asp-route-id="@Model.Id">Delete</a>
+                    <small class="text-muted">Posted By @comment.IdentityUser.UserName on @comment.TimeStamp</small>
+                    <hr>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<form id="commentForm" method="post" asp-action="Create" asp-controller="Comment">
+    <div class="form-group">
+        <input type="hidden" name="MovieId" value="@Model.Id" />
+        <label class="fw-bold">Write Your Comment.</label>
+        <textarea class="form-control" rows="3" name="CommentDesc" placeholder="Comments are written here :)"></textarea>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success" id="btnComment">Leave Your Comment</button>
+</form>*@
+
+@model Comment
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Comment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CommentId" />
+            <input type="hidden" asp-for="MovieId" />
+            <div class="form-group">
+                <label asp-for="CommentDesc" class="control-label"></label>
+                <input asp-for="CommentDesc" class="form-control" />
+                <span asp-validation-for="CommentDesc" class="text-danger"></span>
+            </div>
+            
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

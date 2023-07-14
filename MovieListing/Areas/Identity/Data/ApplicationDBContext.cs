@@ -12,9 +12,9 @@ public class ApplicationDBContext : IdentityDbContext<IdentityUser>
     {
     }
 
-    public ApplicationDBContext()
-    {
-    }
+    //public ApplicationDBContext()
+    //{
+    //}
 
     //protected override void OnModelCreating(ModelBuilder builder)
     //{

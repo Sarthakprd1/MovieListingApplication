@@ -1,30 +1,69 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MovieListing.Areas.Identity.Data;
+using MovieListing.Models;
 using MovieListing.Repository.Interfaces;
+using System.Security.Claims;
 
 namespace MovieListing.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly IComment _icomment;
-        public CommentController(IComment icomment)
+        private readonly IComment _iComment;
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public CommentController(IComment icomment, UserManager<IdentityUser> userManager)
         {
-            _icomment = icomment;
+            _iComment = icomment;
+            _userManager = userManager;
         }
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    var result = _icomment.GetComments();
+        //    return View(result);
+        //}
+       
+        [HttpPost]
+        public IActionResult Create([Bind("MovieId,CommentDesc")]Comment comment) 
         {
-            var result = _icomment.GetComments();
-            return View(result);
+            comment.UserId = _userManager.GetUserId(User);
+            comment.TimeStamp= DateTime.Now;
+            _iComment.AddComments(comment);
+            TempData["Comment Addition"] = "Comment Added Successfully.";
+            return RedirectToAction("Details", "Movies", new {id=comment.MovieId}); 
         }
+
+        //DELETE
         [HttpGet]
-        public IActionResult Create(int id)
+        public IActionResult Delete(int id)
+        {
+            var comment = _iComment.GetById(id);
+            _iComment.DeleteComments(comment);
+            TempData["DeleteComment"] = "Comment Removed Successfully.";
+            return RedirectToAction("Details", "Movies", new { id = comment.MovieId });
+        }
+
+        //Edit
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
 
-            return View();
+            Comment comment = _iComment.GetById(id);
+            return View(comment); 
         }
+
         [HttpPost]
-        public IActionResult Create() 
+        public IActionResult Edit(Comment comment)
         {
-            return View();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            comment.UserId = claim.Value;
+            comment.TimeStamp= DateTime.Now;    
+            _iComment.EditComments(comment);
+            TempData["UpdateComment"] = "Comment Updated Successfully.";
+            return RedirectToAction("Details", "Movies", new { id = comment.MovieId });
         }
     }
 }

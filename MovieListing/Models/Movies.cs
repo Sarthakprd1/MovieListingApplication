@@ -36,6 +36,8 @@ namespace MovieListing.Models
 
         public List<Comment> Comments { get; set; } 
 
+        public List<Rating> Rating { get; set; }   
+
 
     }
 }

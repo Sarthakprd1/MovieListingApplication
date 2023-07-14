@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Movies\\12f29438-3976-4d1f-a3c5-04e050a619e0.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\18b2ec57-279f-4192-8906-1fce63113e79.jpg",
+      "PackagePath": "staticwebassets\\Movies\\18b2ec57-279f-4192-8906-1fce63113e79.jpg"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\3a25b637-f7f1-43a2-8b01-2cd1a1909e99.webp",
       "PackagePath": "staticwebassets\\Movies\\3a25b637-f7f1-43a2-8b01-2cd1a1909e99.webp"
     },
@@ -25,8 +29,16 @@
       "PackagePath": "staticwebassets\\Movies\\575de3dd-8f9e-45cf-85bc-a6441bcceda3.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\68fa178a-e59a-4b1e-915c-6a20a1617a76.jpg",
+      "PackagePath": "staticwebassets\\Movies\\68fa178a-e59a-4b1e-915c-6a20a1617a76.jpg"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg",
       "PackagePath": "staticwebassets\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg",
+      "PackagePath": "staticwebassets\\Movies\\92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\Cover\\4b2d177c-d465-4476-acb2-ada6b2a2e8e4_Screenshot 2023-06-08 161323.png",
@@ -83,6 +95,10 @@
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\be4a4791-d605-42d3-a6d9-511dd269e7d4.webp",
       "PackagePath": "staticwebassets\\Movies\\be4a4791-d605-42d3-a6d9-511dd269e7d4.webp"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg",
+      "PackagePath": "staticwebassets\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\ffa59985-76fc-4315-a48c-fbce6e7f783e.jpg",

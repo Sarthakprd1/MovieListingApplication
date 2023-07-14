@@ -12,18 +12,20 @@ namespace MovieListing.Controllers
     [Authorize]
     public class MoviesController : Controller
     {
+        private readonly IComment _IComment;
         private readonly IGenre _IGenre;
         private readonly ICountries _ICountries;
         private readonly IYear _Iyear;
         private readonly IMovies _IMovies;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public MoviesController(IMovies movies, IWebHostEnvironment webHostEnvironment, IYear year, IGenre genre, ICountries countries)
+        public MoviesController(IMovies movies, IWebHostEnvironment webHostEnvironment, IYear year, IGenre genre, ICountries countries, IComment comment)
         {
             _IMovies = movies;
             _webHostEnvironment = webHostEnvironment;
             _Iyear = year;
             _IGenre = genre;
             _ICountries = countries;
+            _IComment = comment;
         }
         //Manual Pagination
 
@@ -163,14 +165,26 @@ namespace MovieListing.Controllers
         [HttpPost]
         public IActionResult Edit(Movies moviess)
         {
-           
-            
+
+            var image = Request.Form.Files.FirstOrDefault();
+            var fileName = Guid.NewGuid().ToString();
+            var path = $@"Movies\";
+            var wwwRootPath = _webHostEnvironment.WebRootPath;
+            var uploads = Path.Combine(wwwRootPath, path);
+            var extension = Path.GetExtension(image.FileName);
+            var x = Path.Combine(uploads, fileName + extension);
+            using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+            {
+                image.CopyTo(fileStreams);
+            }
+            moviess.MoviePhoto = $"\\Movies\\{fileName}" + extension;
+
             _IMovies.UpdateMovies(moviess);
             TempData["MovieUpdate"] = "Movie Added Successfully.";
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Admin")]
+        
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -186,6 +200,10 @@ namespace MovieListing.Controllers
             //Drop down list for Country
             var countryList = new SelectList(_ICountries.GetCountries(), "Id", "Name");
             ViewData["CountryId"] = countryList;
+
+            ViewBag.Comments = _IComment.GetComments(id);
+
+             
             return View(moviess);
         }
 

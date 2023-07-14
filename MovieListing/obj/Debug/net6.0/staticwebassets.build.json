@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/E/Lf4ITkIjYfoe/POJVvNRzqHmNXa97uHzeSnNRJmI=",
+  "Hash": "2zG2otvNQcMrk8kyGVPNjPMBT58cT2GFxhgXEpsB22Q=",
   "Source": "MovieListing",
   "BasePath": "_content/MovieListing",
   "Mode": "Default",
@@ -2261,6 +2261,23 @@
       "OriginalItemSpec": "wwwroot\\Movies\\12f29438-3976-4d1f-a3c5-04e050a619e0.jpg"
     },
     {
+      "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\18b2ec57-279f-4192-8906-1fce63113e79.jpg",
+      "SourceId": "MovieListing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\",
+      "BasePath": "_content/MovieListing",
+      "RelativePath": "Movies/18b2ec57-279f-4192-8906-1fce63113e79.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Movies\\18b2ec57-279f-4192-8906-1fce63113e79.jpg"
+    },
+    {
       "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\3a25b637-f7f1-43a2-8b01-2cd1a1909e99.webp",
       "SourceId": "MovieListing",
       "SourceType": "Discovered",
@@ -2312,6 +2329,23 @@
       "OriginalItemSpec": "wwwroot\\Movies\\575de3dd-8f9e-45cf-85bc-a6441bcceda3.jpg"
     },
     {
+      "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\68fa178a-e59a-4b1e-915c-6a20a1617a76.jpg",
+      "SourceId": "MovieListing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\",
+      "BasePath": "_content/MovieListing",
+      "RelativePath": "Movies/68fa178a-e59a-4b1e-915c-6a20a1617a76.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Movies\\68fa178a-e59a-4b1e-915c-6a20a1617a76.jpg"
+    },
+    {
       "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg",
       "SourceId": "MovieListing",
       "SourceType": "Discovered",
@@ -2327,6 +2361,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg",
+      "SourceId": "MovieListing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\",
+      "BasePath": "_content/MovieListing",
+      "RelativePath": "Movies/92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Movies\\92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg"
     },
     {
       "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\be4a4791-d605-42d3-a6d9-511dd269e7d4.webp",
@@ -2565,6 +2616,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Movies\\Cover\\faeaa7d7-7793-4fc3-940d-f70b643e7ae5_Screenshot 2023-06-08 161323.png"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg",
+      "SourceId": "MovieListing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\",
+      "BasePath": "_content/MovieListing",
+      "RelativePath": "Movies/d43e5e90-5be0-40eb-b180-becf669231e5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg"
     },
     {
       "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\ffa59985-76fc-4315-a48c-fbce6e7f783e.jpg",

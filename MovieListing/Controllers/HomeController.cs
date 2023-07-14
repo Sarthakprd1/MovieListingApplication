@@ -28,7 +28,6 @@ namespace MovieListing.Controllers
         {
             return View();
         }
-
         
     }
 }

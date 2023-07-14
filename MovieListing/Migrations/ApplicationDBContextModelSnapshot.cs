@@ -226,11 +226,11 @@ namespace MovieListing.Migrations
 
             modelBuilder.Entity("MovieListing.Models.Comment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"), 1L, 1);
 
                     b.Property<string>("CommentDesc")
                         .HasColumnType("nvarchar(max)");
@@ -238,15 +238,18 @@ namespace MovieListing.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MoviesId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan?>("TimeStamp")
-                        .HasColumnType("time");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CommentId");
 
-                    b.HasIndex("MoviesId");
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -325,6 +328,33 @@ namespace MovieListing.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("MovieListing.Models.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatingAvg")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rating");
+                });
+
             modelBuilder.Entity("MovieListing.Models.Year", b =>
                 {
                     b.Property<int>("Id")
@@ -397,7 +427,17 @@ namespace MovieListing.Migrations
                 {
                     b.HasOne("MovieListing.Models.Movies", "Movies")
                         .WithMany("Comments")
-                        .HasForeignKey("MoviesId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdentityUser");
 
                     b.Navigation("Movies");
                 });
@@ -429,9 +469,30 @@ namespace MovieListing.Migrations
                     b.Navigation("Year");
                 });
 
+            modelBuilder.Entity("MovieListing.Models.Rating", b =>
+                {
+                    b.HasOne("MovieListing.Models.Movies", "Movies")
+                        .WithMany("Rating")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdentityUser");
+
+                    b.Navigation("Movies");
+                });
+
             modelBuilder.Entity("MovieListing.Models.Movies", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Rating");
                 });
 #pragma warning restore 612, 618
         }
