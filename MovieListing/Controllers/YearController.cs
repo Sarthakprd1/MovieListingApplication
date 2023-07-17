@@ -44,7 +44,7 @@ namespace MovieListing.Controllers
         [HttpPost]
         public IActionResult Create(Year yearss)
         {
-            _Iyear.AddYear(yearss);
+            _Iyear.AddDb(yearss);   
             TempData["YearAdd"] = "Year Added Successfully.";
             return RedirectToAction("Index");
         }
@@ -54,7 +54,7 @@ namespace MovieListing.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(Year yearss)
         {
-            _Iyear.DeleteYear(yearss);
+            _Iyear.DeleteDb(yearss);
             TempData["YearRemove"] = "Year Removed Successfully.";
             return RedirectToAction("Index");
             
@@ -73,7 +73,7 @@ namespace MovieListing.Controllers
         [HttpPost]
         public IActionResult Edit(Year yearss)
         {
-            _Iyear.UpdateYear(yearss);
+            _Iyear.UpdateDb(yearss);    
             TempData["YearUpdate"] = "Year Updated Successfully.";
             return RedirectToAction("Index");
             

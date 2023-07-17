@@ -255,3 +255,5 @@ C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\obj\Debug\net6.0\refi
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\obj\Debug\net6.0\MovieListing.pdb
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\obj\Debug\net6.0\MovieListing.genruntimeconfig.cache
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\obj\Debug\net6.0\ref\MovieListing.dll
+C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\bin\Debug\net6.0\ADO.Net.Client.Annotations.dll
+C:\Users\admin\Desktop\Codeology\MovieListing\MovieListing\bin\Debug\net6.0\ADO.Net.Client.Core.dll
