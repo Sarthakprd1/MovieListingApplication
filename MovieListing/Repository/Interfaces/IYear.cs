@@ -9,6 +9,7 @@ namespace MovieListing.Repository.Interfaces
         bool DeleteYear(Year year);
         Year GetById (int id);  
         List<Year> GetYearList();
+
         //store procedure
         bool AddDb(Year year);  
         bool UpdateDb(Year year);

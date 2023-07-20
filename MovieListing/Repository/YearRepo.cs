@@ -21,6 +21,7 @@ namespace MovieListing.Repository
             ConnectionString = _configuration.GetConnectionString("ApplicationDBContextConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         }
 
+        //STORE PROCEDURES
         public bool AddDb(Year year)
         {
             int i;
@@ -59,15 +60,16 @@ namespace MovieListing.Repository
             using (SqlConnection delete = new SqlConnection(ConnectionString))
             {
                 delete.Open();
-
                 SqlCommand com = new SqlCommand("DeleteYear", delete);
                 com.CommandType = System.Data.CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@Id", year.Id);
+                if (year == null)
                 i = com.ExecuteNonQuery();
             }
             return true;
         }
 
+        //NORMAL DBCONTEXT
         public bool AddYear(Year year)
         {
         //    _dbcontext.Years.Add(year);
