@@ -5,6 +5,7 @@ using MovieListing.Areas.Identity.Data;
 using MovieListing.Models;
 using MovieListing.Models.StoreDB;
 using MovieListing.Repository.Interfaces;
+using System.Diagnostics.Metrics;
 
 namespace MovieListing.Repository
 {
@@ -80,9 +81,18 @@ namespace MovieListing.Repository
 
         public bool DeleteYear(Year year)
         {
-            _dbcontext.Years.Remove(year);
-            _dbcontext.SaveChanges();
+
+            if (year == null)
+            {
+                return false;
+            }
+            else
+            {
+                _dbcontext.Years.Remove(year);
+                _dbcontext.SaveChanges();
+            }
             return true;
+         
         }
 
         public Year GetById(int id)

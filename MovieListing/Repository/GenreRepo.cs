@@ -10,7 +10,7 @@ namespace MovieListing.Repository
         private readonly ApplicationDBContext _dbContext; //Calling DB
         public GenreRepo(ApplicationDBContext dbContext) //Making Object for Database in repo which ends the direct connection of controller with DB.
         {
-            _dbContext = dbContext; 
+            _dbContext = dbContext;
         }
 
         public bool AddGenre(Genre genre)
@@ -22,8 +22,16 @@ namespace MovieListing.Repository
 
         public bool DeleteGenre(Genre genre)
         {
-            _dbContext.Genre.Remove(genre);
-            _dbContext.SaveChanges();
+            if (genre == null)
+            {
+                return false;
+            }
+            else
+            {
+                _dbContext.Genre.Remove(genre);
+                _dbContext.SaveChanges();
+            }
+           
             return true;
         }
 

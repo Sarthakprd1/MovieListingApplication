@@ -34,11 +34,18 @@ namespace MovieListing.Repository
             return true;
         }
 
-
+        //Delete Countries
         public bool DeleteCountries(Country country)
-        {
-            _dbContext.Countries.Remove(country);
-            _dbContext.SaveChanges();
+        {   
+            if(country == null ) 
+            {
+                return false;
+            }
+            else
+            {
+                _dbContext.Countries.Remove(country);
+                _dbContext.SaveChanges();
+            }
             return true;
         }
 

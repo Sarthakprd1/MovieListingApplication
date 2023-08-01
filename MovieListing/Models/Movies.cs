@@ -15,9 +15,9 @@ namespace MovieListing.Models
         [Required]
         public string Description { get; set; }
 
-        
+        [Required]
         [Display(Name = "Insert an Image")]
-        public string MoviePhoto { get; set; }
+        public string? MoviePhoto { get; set; }
 
         [Required]
         [ForeignKey("Year")]
@@ -33,6 +33,8 @@ namespace MovieListing.Models
         [ForeignKey("Country")]
         public int CountryRefId { get; set; }
         public Country Country { get; set; }
+
+        //Comment and Ratings
 
         public List<Comment> Comments { get; set; } 
 

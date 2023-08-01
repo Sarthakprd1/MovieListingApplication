@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\Movies\\18b2ec57-279f-4192-8906-1fce63113e79.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\233065ff-dba4-4eb0-8f25-b55ab1740fb5.webp",
+      "PackagePath": "staticwebassets\\Movies\\233065ff-dba4-4eb0-8f25-b55ab1740fb5.webp"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\33031d68-3360-4706-b58d-3242efcf4dbb.webp",
+      "PackagePath": "staticwebassets\\Movies\\33031d68-3360-4706-b58d-3242efcf4dbb.webp"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\3a25b637-f7f1-43a2-8b01-2cd1a1909e99.webp",
       "PackagePath": "staticwebassets\\Movies\\3a25b637-f7f1-43a2-8b01-2cd1a1909e99.webp"
     },
@@ -37,8 +45,16 @@
       "PackagePath": "staticwebassets\\Movies\\7add7e99-1a84-4200-a06c-eb5601025c2c.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\825a373c-f465-4e88-be8a-e743a71a615a.jpg",
+      "PackagePath": "staticwebassets\\Movies\\825a373c-f465-4e88-be8a-e743a71a615a.jpg"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg",
       "PackagePath": "staticwebassets\\Movies\\8c689339-b9a8-4d77-ac5b-6ef17d470171.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\8d04482b-dc9e-4e7d-a721-f632f6cf1538.jpeg",
+      "PackagePath": "staticwebassets\\Movies\\8d04482b-dc9e-4e7d-a721-f632f6cf1538.jpeg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\92d8c70e-0f72-4d67-8832-81473ec5f1c9.jpg",
@@ -101,12 +117,32 @@
       "PackagePath": "staticwebassets\\Movies\\be4a4791-d605-42d3-a6d9-511dd269e7d4.webp"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\c733f82d-6c15-4f80-b304-8639077c789a.png",
+      "PackagePath": "staticwebassets\\Movies\\c733f82d-6c15-4f80-b304-8639077c789a.png"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg",
       "PackagePath": "staticwebassets\\Movies\\d43e5e90-5be0-40eb-b180-becf669231e5.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\d589953b-f08a-4dd4-bddd-3559fc26002b.jpeg",
+      "PackagePath": "staticwebassets\\Movies\\d589953b-f08a-4dd4-bddd-3559fc26002b.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\da548d9d-a9ea-4fa3-af3b-f81b7d5753b1.png",
+      "PackagePath": "staticwebassets\\Movies\\da548d9d-a9ea-4fa3-af3b-f81b7d5753b1.png"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\db225de9-a78b-4b97-a7d8-be6e6871ec1c.jpg",
       "PackagePath": "staticwebassets\\Movies\\db225de9-a78b-4b97-a7d8-be6e6871ec1c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\df8d5dfa-f823-464b-a3e9-aadb2e3f9525.jpg",
+      "PackagePath": "staticwebassets\\Movies\\df8d5dfa-f823-464b-a3e9-aadb2e3f9525.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\f0142222-6a20-4482-8b78-584c8e59b250.jpeg",
+      "PackagePath": "staticwebassets\\Movies\\f0142222-6a20-4482-8b78-584c8e59b250.jpeg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\ffa59985-76fc-4315-a48c-fbce6e7f783e.jpg",
@@ -125,8 +161,16 @@
       "PackagePath": "staticwebassets\\images\\Antman.jpg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Evil dead.jpg",
+      "PackagePath": "staticwebassets\\images\\Evil dead.jpg"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Hypnotic.jpg",
       "PackagePath": "staticwebassets\\images\\Hypnotic.jpg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Insidious_the_red_door.png",
+      "PackagePath": "staticwebassets\\images\\Insidious_the_red_door.png"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Joker.jpg",
@@ -137,12 +181,28 @@
       "PackagePath": "staticwebassets\\images\\Moonlight.jpeg"
     },
     {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\The_nun.webp",
+      "PackagePath": "staticwebassets\\images\\The_nun.webp"
+    },
+    {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Theflash.jpg",
       "PackagePath": "staticwebassets\\images\\Theflash.jpg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\Thor.webp",
       "PackagePath": "staticwebassets\\images\\Thor.webp"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\download (1).jpeg",
+      "PackagePath": "staticwebassets\\images\\download (1).jpeg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\download (2).jpeg",
+      "PackagePath": "staticwebassets\\images\\download (2).jpeg"
+    },
+    {
+      "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\download.jpeg",
+      "PackagePath": "staticwebassets\\images\\download.jpeg"
     },
     {
       "Id": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\images\\moviecorousel.jpg",

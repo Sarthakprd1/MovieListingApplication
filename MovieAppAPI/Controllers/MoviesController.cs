@@ -19,45 +19,84 @@ namespace MovieAppAPI.Controllers
         private readonly IMapper _mapper;
         public MoviesController(IMovies imovies, IMapper mapper)
         {
-            _IMovies= imovies;  
-            _mapper= mapper;
+            _IMovies = imovies;
+            _mapper = mapper;
         }
 
+        //Get All Movies List.
         [HttpGet]
-        public ActionResult<List<MovieDTO>> GetMoviesList() 
+        public ActionResult<List<MovieDTO>> GetMoviesList()
         {
 
             var getmovieslist = _IMovies.GetAllMovies();
             var result = getmovieslist.Select(x => _mapper.Map<MovieDTO>(x)).ToList();
+
             return Ok(result);
         }
 
+        //Get Movies By ID
+        [HttpGet("{id}")]
+        public ActionResult<List<MovieDTO>> GetMoviesByID(int id)
+        {
+            var findMovieId = _IMovies.GetByID(id);
+            if (findMovieId == null)
+            {
+                return BadRequest("Movie ID Not Found !");
+            }
+            return Ok(findMovieId);
+        }
+        //Add New Movies
         [HttpPost]
-        public ActionResult<List<MovieDTO>> AddMovies(MovieDTO movies)
+        public ActionResult<List<MovieCreateDTO>> AddMovies(MovieCreateDTO movies)
         {
             var mapmovies = _mapper.Map<Movies>(movies);
             var addmovies = _IMovies.AddMovies(mapmovies);
+            if(addmovies == true)
+            {
+                return Ok("Movie Added Successfully.");
+            }
+            else if(addmovies == false)
+            {
+                return BadRequest("Failed to Add New Movies");
+            }
 
             return Ok(addmovies);
         }
 
+        //Update Movies
         [HttpPut]
-        public ActionResult<List<MovieDTO>> UpdateMovie(MovieDTO movie) 
+        public ActionResult<List<MovieCreateDTO>> UpdateMovie(MovieDTO movies)
         {
-            var mapmovies = _mapper.Map<Movies>(movie);
-            var updatemovies = _IMovies.UpdateMovies(mapmovies);        
+            var mapmovies = _mapper.Map<Movies>(movies);
+            var updatemovies = _IMovies.UpdateMovies(mapmovies);
             return Ok(updatemovies);
+
+            //var findbyid = _IMovies.GetByID(movies.Id);
+            //if (findbyid == null)
+            //{
+            //    return BadRequest("Movie Not Found");
+            //}
+            //var mapmovies = _mapper.Map<Movies>(id);
+            //var updatemovies = _IMovies.UpdateMovies(mapmovies);        
         }
 
-        [HttpDelete]
-        public ActionResult DeleteMovie(int id)
+        //Delete Movies By ID.
+        [HttpDelete("{id}")]
+        public ActionResult<List<MovieDTO>> DeleteMovie(int id)
         {
-            var mapmovies = _mapper.Map<Movies>(id);
-            var deletemovies =_IMovies.DeleteMovies(mapmovies); 
-            return Ok(deletemovies);    
+            //var findid = _mapper.Map<Movies>(id);
+            var findId = _IMovies.GetByID(id);
+            var deletemovies = _IMovies.DeleteMovies(findId);
+            if (findId == null)
+            {
+                return BadRequest("Movie ID Not Found !");
+            }
+            else if (deletemovies == true)
+            {
+                return Ok("Movie Deleted Successfully !");
+            }
+            return Ok(deletemovies);
         }
-
-
 
         //----------------------------------REFERENCE PART--------------------------------------------------------------//
 
@@ -68,7 +107,7 @@ namespace MovieAppAPI.Controllers
         //    //return Ok(heroes); // returns from above list
         //    return Ok(_dbcontext.Movies.ToList());
         //}
-        
+
         ////Get method for single SuperHero By Id
         ////User Requests for data
         //[HttpGet("{id}")] // Passing Required Field according to the parameter

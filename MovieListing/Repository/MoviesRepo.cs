@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieListing.Areas.Identity.Data;
 using MovieListing.Models;
 using MovieListing.Repository.Interfaces;
+using System.Diagnostics.Metrics;
 
 namespace MovieListing.Repository
 {
@@ -23,20 +24,28 @@ namespace MovieListing.Repository
 
         public bool DeleteMovies(Movies movies)
         {
-            _dbContext.Movies.Remove(movies);
-            _dbContext.SaveChanges();
+            if (movies == null)
+            {
+                return false;
+            }
+            else
+            {
+                _dbContext.Movies.Remove(movies);
+                _dbContext.SaveChanges();
+            }
             return true;
         }
 
         public List<Movies> GetAllMovies()
         {
-            var data = _dbContext.Movies.Include(e=>e.Year).Include(e=>e.Genre).Include(e=>e.Country).ToList();
+            var data = _dbContext.Movies.Include(e => e.Year).Include(e => e.Genre).Include(e => e.Country).ToList();
             return data;
         }
 
         public Movies GetByID(int id)
         {
-            return _dbContext.Movies.Find(id);
+            var data = _dbContext.Movies.Find(id);
+            return data;
         }
 
         public bool UpdateMovies(Movies movies)

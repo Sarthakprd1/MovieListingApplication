@@ -21,9 +21,10 @@ namespace MovieAppAPI.Controllers
         public YearController(IMapper mapper, IYear iyear)
         {
             _mapper = mapper;
-            _Iyear = iyear;     
+            _Iyear = iyear;
         }
 
+        //Get All Years.
         [HttpGet]
         public ActionResult<List<YearDTO>> GetYear()
         {
@@ -32,35 +33,66 @@ namespace MovieAppAPI.Controllers
             return Ok(years);
         }
 
+        //GetById
+        [HttpGet("{id}")]
+        public ActionResult<List<YearDTO>> GetById(int id)
+        {
+            var findYearId = _Iyear.GetById(id);
+            if (findYearId == null)
+            {
+                return Ok("Year ID Not Found !");
+            }
+            return Ok(findYearId);
+        }
+
+        //Add Years.
         [HttpPost]
         public ActionResult<List<YearDTO>> AddYear(YearDTO year)
         {
             var years = _mapper.Map<Year>(year);
-            var addyear =  _Iyear.AddDb(years);
-
+            var addyear = _Iyear.AddDb(years);
+            if(addyear == true)
+            {
+                return Ok("Year Added Successfully !");
+            }
             return Ok(addyear);
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<List<YearDTO>> DeleteYear(int id)
-        {
-            //var years = _mapper.Map<Year>(id);
-            var find = _Iyear.GetById(id);
-            var deleteyear = _Iyear.DeleteDb(find);
-
-            return Ok(deleteyear);
-        }
-
+        //Update Years.
         [HttpPut]
         public ActionResult<List<YearDTO>> UpdateYear(Year year)
         {
             //var years = _mapper.Map<Year>(year);
 
             var updateYear = _Iyear.UpdateDb(year);
+            if (updateYear == true)
+            {
+                return Ok("Years Updated Successfully !");
+            }
+            else if (updateYear == false)
+            {
+                return Ok("Failed While Updating Years.");
+            }
 
             return Ok(updateYear);
         }
 
-
+        //Delete Years By ID
+        [HttpDelete("{id}")]
+        public ActionResult<List<YearDTO>> DeleteYear(int id)
+        {
+            //var years = _mapper.Map<Year>(id);
+            var findbyId = _Iyear.GetById(id);
+            var deleteyear = _Iyear.DeleteYear(findbyId);
+            if (findbyId == null)
+            {
+                return BadRequest("Associated Year ID Not Found !");
+            }
+            else if (findbyId != null)
+            {
+                return Ok("Year Successfully Deleted");
+            }
+            return Ok(deleteyear);
+        }
     }
 }

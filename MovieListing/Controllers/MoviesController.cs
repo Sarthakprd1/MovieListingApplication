@@ -165,7 +165,6 @@ namespace MovieListing.Controllers
         [HttpPost]
         public IActionResult Edit(Movies moviess)
         {
-
             var image = Request.Form.Files.FirstOrDefault();
             var fileName = Guid.NewGuid().ToString();
             var path = $@"Movies\";
