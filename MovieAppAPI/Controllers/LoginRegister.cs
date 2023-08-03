@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +11,9 @@ using MovieListing.Areas.Identity.Data;
 using MovieListing.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using MovieAppAPI.Services;
+using System.Text;
 
 namespace MovieAppAPI.Controllers
 {
@@ -20,11 +24,15 @@ namespace MovieAppAPI.Controllers
         private readonly IMapper _mapper;
         private readonly ILoginRegister _loginregister;
         private readonly IConfiguration _configuration;
-        public LoginRegister(ILoginRegister loginRegister, IMapper mapper, IConfiguration configuration) 
+        private readonly SignInManager<IdentityUser> _userManager;
+        
+        public LoginRegister(ILoginRegister loginRegister, IMapper mapper, IConfiguration configuration, SignInManager<IdentityUser> userManager) 
         {
             _loginregister = loginRegister;
             _mapper = mapper;
             _configuration = configuration;
+            _userManager = userManager;
+            
         }
 
         [HttpPost("Register")]
@@ -47,20 +55,27 @@ namespace MovieAppAPI.Controllers
         //    }
         //    return BadRequest("Something Went Wrong");
         //}
-
+        
         [HttpPost("Login")]
         public async Task<ActionResult<LoginDTO>> Login(LoginDTO user)
         {
             var loginUser = _mapper.Map<IdentityUser>(user);
+            var result = await _userManager.PasswordSignInAsync(loginUser.Email, loginUser.PasswordHash, false, false);
+
+            if (result.Succeeded)
+            {
+                var token = CreateToken(loginUser);
+                return Ok(token);
+            }
             if (ModelState.IsValid == false) 
             {
                 return BadRequest();
             }
-            if(await _loginregister.Login(loginUser))
-            {
-                string token = CreateToken(loginUser);
-                return Ok(token);
-            }
+            //if (await _loginregister.Login(loginUser))
+            //{
+            //    var token = CreateToken(loginUser);
+            //    return Ok(token);
+            //}
 
             //if (loginUser.Email != user.Email)
             //{
@@ -75,28 +90,49 @@ namespace MovieAppAPI.Controllers
         }
 
 
-        private string CreateToken(IdentityUser user) 
+        private JwtTokens CreateToken(IdentityUser user) 
         {
+            //var claims = new List<Claim>
+            //{
+            //    new Claim(ClaimTypes.Name, user.Email),
+            //    new Claim(ClaimTypes.Role, "Admin")
+            //};
 
-            List<Claim> claims = new List<Claim>
+            //var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
+            //    _configuration.GetSection("Jwt:Key").Value));
+
+            ////for not being able to change the data from the client side
+            //var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            //var token = new JwtSecurityToken(
+            //    claims: claims,
+            //    expires: DateTime.Now.AddDays(1),
+            //    issuer: _configuration.GetSection("Jwt:Issuer").Value,
+            //    audience: _configuration.GetSection("Jwt:Audience").Value,
+            //    signingCredentials: cred);
+
+            //var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            //return jwt;
+
+            // Generate and return JWT token if user is authenticated
+            var tokenhandler = new JwtSecurityTokenHandler();
+            var tkey = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+
+            var tokenDescp = new SecurityTokenDescriptor()
             {
-                new Claim(ClaimTypes.Name, user.Email),
-                //new Claim(ClaimTypes,);
-
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim(ClaimTypes.Role, "Admin")
+                }),
+                Expires = DateTime.UtcNow.AddMinutes(5),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tkey), SecurityAlgorithms.HmacSha256)
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-                _configuration.GetSection("AppSettings:Token").Value));
+            var token = tokenhandler.CreateToken(tokenDescp);
 
-            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            return new JwtTokens { Token = tokenhandler.WriteToken(token) };
 
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: cred);
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwt;
         }
 
     }

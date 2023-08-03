@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MovieAppAPI.DTO;
 using MovieListing.Models;
 using MovieListing.Repository.Interfaces;
+using System.Security.Claims;
 
 namespace MovieAppAPI.Controllers
 {
@@ -30,7 +33,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Get Countries by ID
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public ActionResult<List<MovieDTO>> GetCountriesById(int id)
         {
             var getbyId = _ICountries.GetByID(id);
@@ -43,7 +46,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //ADD COUNTRY
-        [HttpPost, Authorize(Roles = "User")]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult<List<CountryDTO>> AddCountry(CountryDTO country)
         {
             var mapcountry = _mapper.Map<Country>(country);
@@ -69,7 +72,6 @@ namespace MovieAppAPI.Controllers
         }
 
         //DELETE COUNTRY
-        //[Authorize(Roles = "Admin"), Authorize]
         [HttpDelete("{id}"),Authorize(Roles = "Admin")]
         public ActionResult DeleteCountry(int id)
         {

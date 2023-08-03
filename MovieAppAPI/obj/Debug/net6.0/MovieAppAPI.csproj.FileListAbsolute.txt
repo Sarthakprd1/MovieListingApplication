@@ -275,3 +275,4 @@ C:\Users\admin\Desktop\Codeology\MovieListing\MovieAppAPI\bin\Debug\net6.0\Micro
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieAppAPI\bin\Debug\net6.0\Scrutor.dll
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieAppAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\admin\Desktop\Codeology\MovieListing\MovieAppAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\admin\Desktop\Codeology\MovieListing\MovieAppAPI\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll
