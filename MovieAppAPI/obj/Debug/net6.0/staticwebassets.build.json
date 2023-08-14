@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1zPPfAQYz6O0S1umOEHi+KtMDTBNlmTuygD2ooR2AYg=",
+  "Hash": "qFOO0Ll4JunhDR0nAidAkk8uAaFsK2CPMdKzHyp2asE=",
   "Source": "MovieAppAPI",
   "BasePath": "_content/MovieAppAPI",
   "Mode": "Default",
@@ -1591,6 +1591,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Movies\\c733f82d-6c15-4f80-b304-8639077c789a.png"
+    },
+    {
+      "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\cfadfbdb-660d-4057-bfb9-25a9a0aad041.jpg",
+      "SourceId": "MovieListing",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\",
+      "BasePath": "_content/MovieListing",
+      "RelativePath": "Movies/cfadfbdb-660d-4057-bfb9-25a9a0aad041.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Movies\\cfadfbdb-660d-4057-bfb9-25a9a0aad041.jpg"
     },
     {
       "Identity": "C:\\Users\\admin\\Desktop\\Codeology\\MovieListing\\MovieListing\\wwwroot\\Movies\\Cover\\4b2d177c-d465-4476-acb2-ada6b2a2e8e4_Screenshot 2023-06-08 161323.png",

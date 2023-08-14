@@ -25,13 +25,15 @@ namespace MovieAppAPI.Controllers
         private readonly ILoginRegister _loginregister;
         private readonly IConfiguration _configuration;
         private readonly SignInManager<IdentityUser> _userManager;
+        private readonly IEmailService _emailservice;
         
-        public LoginRegister(ILoginRegister loginRegister, IMapper mapper, IConfiguration configuration, SignInManager<IdentityUser> userManager) 
+        public LoginRegister(ILoginRegister loginRegister, IMapper mapper, IConfiguration configuration, SignInManager<IdentityUser> userManager, IEmailService emailService) 
         {
             _loginregister = loginRegister;
             _mapper = mapper;
             _configuration = configuration;
             _userManager = userManager;
+            _emailservice = emailService;
             
         }
 
@@ -41,6 +43,15 @@ namespace MovieAppAPI.Controllers
             var Idenuser = _mapper.Map<IdentityUser>(user);
             if (await _loginregister.RegisterUser(Idenuser))
             {
+                var subject = "Sarthak Movie WEB API";
+                var emailmessage = "Welcome to the WEB API, You have Successfully created an account ! yay";
+                var x = new EmailDTO()
+                {
+                    To = Idenuser.Email,
+                    Subject = subject,
+                    Body= emailmessage
+                };
+                _emailservice.SendEmail(x);
                 return Ok("Successfully Done");
             }
             return BadRequest("Something Went Wrong");

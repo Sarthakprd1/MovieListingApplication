@@ -15,6 +15,7 @@ namespace MovieListing.Models
         public int MovieId { get; set; }
         public Movies Movies { get; set; }
 
+
         [ForeignKey("IdentityUser")]
         public string UserId { get; set; }
         public IdentityUser IdentityUser { get; set; }

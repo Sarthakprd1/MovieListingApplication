@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieAppAPI.DTO;
@@ -46,7 +47,7 @@ namespace MovieAppAPI.Controllers
             return Ok(findMovieId);
         }
         //Add New Movies
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult<List<MovieCreateDTO>> AddMovies(MovieCreateDTO movies)
         {
             var mapmovies = _mapper.Map<Movies>(movies);
@@ -64,7 +65,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Update Movies
-        [HttpPut]
+        [HttpPut, Authorize(Roles = "Admin")]
         public ActionResult<List<MovieCreateDTO>> UpdateMovie(MovieDTO movies)
         {
             var mapmovies = _mapper.Map<Movies>(movies);
@@ -81,7 +82,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Delete Movies By ID.
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public ActionResult<List<MovieDTO>> DeleteMovie(int id)
         {
             //var findid = _mapper.Map<Movies>(id);

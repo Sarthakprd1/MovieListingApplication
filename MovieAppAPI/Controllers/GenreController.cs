@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieAppAPI.DTO;
@@ -48,7 +49,7 @@ namespace MovieAppAPI.Controllers
 
 
         //AddGenre
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult<List<GenreDTO>> AddGenre(GenreDTO genre)
         {
             var genres = _mapper.Map<Genre>(genre);
@@ -60,7 +61,7 @@ namespace MovieAppAPI.Controllers
             return Ok(addgenre);
         }
 
-        [HttpPut]
+        [HttpPut, Authorize(Roles = "Admin")]
         public ActionResult<List<GenreDTO>> UpdateGenre(Genre genre)
         {
             var updategenre = _IGenre.UpdateGenre(genre);
@@ -71,7 +72,7 @@ namespace MovieAppAPI.Controllers
             return Ok(updategenre);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public ActionResult<List<GenreDTO>> DeleteGenre(int id)
         {
             var findid = _IGenre.GetByID(id);

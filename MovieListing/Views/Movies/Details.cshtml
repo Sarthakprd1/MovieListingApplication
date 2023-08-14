@@ -87,7 +87,7 @@
     {
         <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
     }
-    
+
     <a class="btn btn-dark" asp-action="Index">Back to List</a>
 
 </div>
@@ -105,13 +105,12 @@
                     <p>@comment.CommentDesc</p>
                     <small class="text-muted">Posted By @comment.IdentityUser.UserName on @comment.TimeStamp</small>
                     <br>
-
-                    @*@if (User.Identity.Name == comment)
-                    {*@
+                    @if (User.Identity.Name == comment.IdentityUser.UserName)
+                    {
                         <a class="btn-color-blue align-text-bottom" asp-action="Edit" asp-controller="Comment" asp-route-id="@comment.CommentId">Edit</a>
 
                         <a class="btn-color" asp-action="Delete" asp-controller="Comment" asp-route-id="@comment.CommentId">Delete</a>
-                    
+                    }
                     <hr>
                 </div>
             }

@@ -1,6 +1,6 @@
 ﻿
 using AutoMapper;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieAppAPI.DTO;
 using MovieListing.Areas.Identity.Data;
@@ -46,7 +46,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Add Years.
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult<List<YearDTO>> AddYear(YearDTO year)
         {
             var years = _mapper.Map<Year>(year);
@@ -59,7 +59,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Update Years.
-        [HttpPut]
+        [HttpPut, Authorize(Roles = "Admin")]
         public ActionResult<List<YearDTO>> UpdateYear(Year year)
         {
             //var years = _mapper.Map<Year>(year);
@@ -78,7 +78,7 @@ namespace MovieAppAPI.Controllers
         }
 
         //Delete Years By ID
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public ActionResult<List<YearDTO>> DeleteYear(int id)
         {
             //var years = _mapper.Map<Year>(id);

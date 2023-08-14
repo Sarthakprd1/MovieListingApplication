@@ -30,7 +30,7 @@ namespace MovieListing.Controllers
             comment.UserId = _userManager.GetUserId(User);
             comment.TimeStamp= DateTime.Now;
             _iComment.AddComments(comment);
-            TempData["Comment Addition"] = "Comment Added Successfully.";
+            TempData["CommentAddition"] = "Comment Added Successfully.";
             return RedirectToAction("Details", "Movies", new {id=comment.MovieId}); 
         }
 
