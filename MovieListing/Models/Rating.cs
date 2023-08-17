@@ -6,6 +6,7 @@ namespace MovieListing.Models
     public class Rating
     {
         public int Id { get; set; }
+        //public int Ratinggiven { get; set; }
         public int RatingAvg { get; set; }
 
         [ForeignKey("Movies")]

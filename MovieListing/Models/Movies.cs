@@ -7,7 +7,7 @@ namespace MovieListing.Models
     public class Movies
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required]
         public string Title { get; set; }

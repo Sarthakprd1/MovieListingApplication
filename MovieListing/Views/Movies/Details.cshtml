@@ -57,31 +57,67 @@
                 @Html.DisplayFor(model => model.Rating)
             </dd>
         </div>
-        @* <form method="post" asp-controller="Rating" asp-action="Create">
+    </dl>
+
+    <form method="post" asp-controller="Rating" asp-action="Create">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
-        .checked {
-        color: orange;
-        }
+            .checked {
+                color: orange;
+            }
         </style>
         <div id="rate" class="rating">
-        <input type="radio" id="star5" name="rating" value="5" class="fa fa-star checked " />
-        <label for="star5" title="5 stars"></label>
-        <input type="radio" id="star4" name="rating" value="4" class="fa fa-star checked " />
-        <label for="star4" title="4 stars"></label>
-        <input type="radio" id="star3" name="rating" value="3" class="fa fa-star checked " />
-        <label for="star3" title="3 stars"></label>
-        <input type="radio" id="star2" name="rating" value="2" class="fa fa-star  " />
-        <label for="star2" title="2 stars"></label>
-        <input type="radio" id="star1" name="rating" value="1" class="fa fa-star  " />
-        <label for="star1" title="1 stars"></label>
+            <input type="radio" id="star5" name="rating" value="5" @*class="fa fa-star checked*@ />
+            <label for="star5" title="5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" @*class="fa fa-star checked*@ />
+            <label for="star4" title="4 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" @*class="fa fa-star checked *@ />
+            <label for="star3" title="3 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" @*class="fa fa-star *@ />
+            <label for="star2" title="2 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" @*class="fa fa-star *@ />
+            <label for="star1" title="1 stars"></label>
         </div>
-        <input type="hidden" name="MovieId" value="@Model.Id" />
+        <input type="hidden" name="MovieId" value="@Model?.Id" />
         <button type="submit" class="btn btn-primary">Submit</button>
-        </form>*@
+    </form>
 
-    </dl>
+    <h2>Rate this Movie</h2>
+    
+
+    <div class="rating">
+        @if(Model.Rating != null){
+            @foreach (var rating in Model.Rating)
+            {
+                var currentRating = rating.RatingAvg;
+
+                @for (var i = 1; i <= 5; i++)
+                {
+                    <span class="star @(i <= currentRating ? "active" : "")">&#9733;</span>
+                }
+            }
+        }
+        
+    </div>
+
+    <form method="post">
+        <input type="hidden" name="MovieId" value="@Model?.Id" />
+        <div class="form-group">
+            <label for="ratingValue">Your Rating:</label>
+            <select class="form-control" name="RatingValue" id="ratingValue">
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Rating</button>
+    </form>
+
 </div>
+<br />
+
 <div>
     @if (User.IsInRole("Admin"))
     {
@@ -105,7 +141,7 @@
                     <p>@comment.CommentDesc</p>
                     <small class="text-muted">Posted By @comment.IdentityUser.UserName on @comment.TimeStamp</small>
                     <br>
-                    @if (User.Identity.Name == comment.IdentityUser.UserName)
+                    @if (User.Identity.Name == comment.IdentityUser.UserName || User.IsInRole("Admin"))
                     {
                         <a class="btn-color-blue align-text-bottom" asp-action="Edit" asp-controller="Comment" asp-route-id="@comment.CommentId">Edit</a>
 
@@ -120,16 +156,13 @@
 
 <form id="commentForm" method="post" asp-action="Create" asp-controller="Comment">
     <div class="form-group">
-        <input type="hidden" name="MovieId" value="@Model.Id" />
+        <input type="hidden" name="MovieId" value="@Model?.Id" />
         <label class="fw-bold">Write Your Comment.</label>
         <textarea class="form-control" rows="3" name="CommentDesc" placeholder="Comments are written here :)"></textarea>
     </div>
     <br />
     <button type="submit" class="btn btn-success" id="btnComment">Leave Your Comment</button>
 </form>
-
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
